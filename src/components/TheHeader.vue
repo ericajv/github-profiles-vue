@@ -16,5 +16,10 @@ export default {
     color: black;
     display: flex;
     gap: 3rem;
+  
+    width: 100%;
+    padding: 1em;
+    align-items:center;
+    border-radius: 10px;
 }
 </style>
