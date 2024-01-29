@@ -1,30 +1,39 @@
-<script setup>
-import HelloWorld from './components/HelloWorld.vue'
+<script>
+import TheHeader from './components/TheHeader.vue'
+export default {
+  data() {
+    return {
+      dadosGitHub: null
+    };
+  },
+  methods: {
+    async getUserData() {
+      const usuarioGitHub = 'ericajv';
+      const urlPerfil = `https://api.github.com/users/${usuarioGitHub}`;
+
+      const data = await fetch(urlPerfil)
+      this.dadosGitHub = await data.json()
+    }
+  },
+  components:{
+    TheHeader
+  }
+};
+
 </script>
 
 <template>
+  <TheHeader></TheHeader>
   <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img src="/vite.svg" class="logo" alt="Vite logo" />
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img src="./assets/vue.svg" class="logo vue" alt="Vue logo" />
-    </a>
+    <button @click="getUserData">Seach</button>
+    <pre>{{ dadosGitHub }}</pre>
+
   </div>
-  <HelloWorld msg="Vite + Vue" />
 </template>
 
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
+<style>
+.container {
+  background-color: green;
+  border-radius: 5rem;
 }
 </style>
