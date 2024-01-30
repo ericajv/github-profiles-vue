@@ -1,25 +1,34 @@
-<template>
-    <header class="header">
-        <img src="../../public/github.svg" alt="icon github">
-        <h1>GitHub Profiles</h1>
-    </header>
-</template>
 <script>
+import Toggle from './Toggle.vue'
 export default {
-
+    components: { Toggle }
 }
 </script>
 
+<template>
+    <header class="header">
+        <div class="logo">
+            <img src="../../public/github.svg" alt="icon github">
+            <h1>GitHub Profiles</h1>
+        </div>
+        <Toggle />
+    </header>
+</template>
+
 <style>
 .header {
-    background-color: rgba(60, 134, 177, 0.685);
-    color: black;
+    background-color: var(--background-color-primary);
+    color: #a49df9;
+    padding: 1rem 2rem;
+    border-bottom: 1px solid#5563ac;
     display: flex;
-    gap: 3rem;
-  
-    width: 100%;
-    padding: 1em;
-    align-items:center;
-    border-radius: 10px;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
 }
 </style>
